@@ -76,8 +76,15 @@ class CRM
 			note
 		)
 		Database.add_contact(contact)
+		main_menu
+
 	end
 
+	def modify_contact
+		print "Choose a contact to modify: "
+		email = gets.chomp
+		contact = Database.find_contact(email) 
+	end
 end
 
 session = CRM.new("Brian's CRM App") 
