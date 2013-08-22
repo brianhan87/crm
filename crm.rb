@@ -1,11 +1,52 @@
-# crm
 
-class CRM
-	def initialize(name)
-		puts "Okay, this CRM has the name " + name
+class Contact
+	def initialize(first_name, last_name, email, note)
+		@first_name = first_name
+		@last_name = last_name
+		@email = email
+		@note = note
 	end
 
-	def start
+	def add_new_contact
+		print "Enter First Name: "
+		first_name = gets.chomp
+		print "Enter Last Name: "
+		last_name = gets.chomp
+		print "Enter Email Address: "
+		email = gets.chomp
+		print "Enter a Note: "
+		note = gets.chomp
+		contact = Contact.new(first_name, last_name, email, note)
+	end
+end
+
+class Database
+	@contacts = []
+	@id = 1000
+
+	def self.add_contact(contact)
+		contact.id = @id
+		@contacts << contact
+		@id += 1
+	end
+
+	def self.contacts
+		@contacts
+	end
+end
+
+class CRM
+
+	def initialize(name)
+		@name = name
+		# now I can access name as @name outside of this method
+	end
+
+	def whats_my_name_again
+		"Oh, your name is " + @name
+	end
+
+	def start # coordinator
 		main_menu
 		add_contact
 		modify_contact
@@ -16,6 +57,10 @@ class CRM
 	end
 
 	def print_main_menu
+		puts "* * * * * * * * * * * *"
+		puts "*        C R M        *"
+		puts "* * * * * * * * * * * *"
+		puts "\n"
 		puts "[1] add_contact"
 		puts "[2] modify_contact" 
 		puts "[3] delete_contact"
@@ -38,36 +83,9 @@ class CRM
 		display_all_contacts          if user_selected == 4
 		display_attribute_of_contacts if user_selected == 5
 		exit_program                  if user_selected == 6
-
-
 	end
-
 end
 
-crm = CRM.new
-crm.start
-
-=begin
-	def add_contact(first, last, email, note="")
-		get first_name
-		get last_name
-		get email
-		get_note # optional
-		create new_contact with the info above
-		set contact_id
-	end
-
-	def modify_contact
-		get contact_id
-			get yes or no to confirm selection
-				if yes 
-					change_id
-					change_first_name
-					change_last_name
-					change_email
-					change_note
-				else
-					return main_menu
-				end
-	end
-=end
+session = CRM.new("Brian's CRM App") 
+# synonymous with new, calling new is calling initialize
+session.start
