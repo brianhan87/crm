@@ -16,9 +16,25 @@ class Contact
 		email = gets.chomp
 		print "Enter a Note: "
 		note = gets.chomp
-		contact = Contact.new(first_name, last_name, email, note)
+		contact = Contact.new(
+			first_name, 
+			last_name, 
+			email, 
+			note
+		)
+	end
+
+	def email
+		@email
+	end
+
+	def note(note)
+		@note = note
 	end
 end
+
+# contact.email => "brianhan87usa@gmail.com"
+# contact.note("Buy him a present.")
 
 class Database
 	@contacts = []
