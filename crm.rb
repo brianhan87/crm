@@ -20,14 +20,16 @@ class CRM
 	end
 
 	def print_main_menu
-		puts "* * * * * * * * * * * *"
-		puts "*        C R M        *"
-		puts "* * * * * * * * * * * *"
+		puts "~~~~~~~~~~~~~~~~~~~~~~~"
+		puts "\n"
+		puts "         C R M         "
+		puts "\n"
+		puts "~~~~~~~~~~~~~~~~~~~~~~~"
 		puts "\n"
 		puts "[1] add_new_contact"
 		puts "[2] modify_contact" 
 		puts "[3] delete_contact"
-		puts "[4] display_all"
+		puts "[4] display_all_contacts"
 		puts "[5] display_attribute"
 		puts "[6] exit"
 		puts "Enter a number: "
@@ -81,9 +83,13 @@ class CRM
 	end
 
 	def modify_contact
-		print "Choose a contact to modify: "
+		contact_list = Database.display_all_contacts
+		contact_list
+		print "Enter email to choose a contact to modify: "
 		email = gets.chomp
-		contact = Database.find_contact(email) 
+		contact = Database.find_all_contact(email)
+		#puts "I'm in modify_contact"
+		main_menu
 	end
 end
 
