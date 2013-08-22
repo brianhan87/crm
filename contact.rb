@@ -1,36 +1,24 @@
+
 class Contact
-	def initialize(first_name, last_name, email, note)
+
+	attr_accessor :first_name, :last_name, :id
+	attr_reader :email
+	attr_writer :note
+
+	def initialize(
+		first_name, 
+		last_name, 
+		email, 
+		note
+	)
+		puts "initialized"
 		@first_name = first_name
 		@last_name = last_name
 		@email = email
 		@note = note
 	end
-
-	def add_new_contact
-		print "Enter First Name: "
-		first_name = gets.chomp
-		print "Enter Last Name: "
-		last_name = gets.chomp
-		print "Enter Email Address: "
-		email = gets.chomp
-		print "Enter a Note: "
-		note = gets.chomp
-		contact = Contact.new(
-			first_name, 
-			last_name, 
-			email, 
-			note
-		)
-	end
-
-	def email
-		@email
-	end
-
-	def note(note)
-		@note = note
-	end
 end
+
 
 # contact.email => "brianhan87usa@gmail.com"
 # contact.note("Buy him a present.")
