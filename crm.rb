@@ -82,6 +82,12 @@ class CRM
 
 	end
 
+	def display_all_contacts
+		contact_list = Database.display_all_contacts
+		contact_list
+		main_menu
+	end
+
 	def modify_contact
 		contact_list = Database.display_all_contacts
 		contact_list
