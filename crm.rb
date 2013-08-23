@@ -16,7 +16,7 @@ class CRM
 		#delete_contact
 		#display_all
 		#display_attribute
-		exit
+		exit_program
 	end
 
 	def print_main_menu
@@ -91,8 +91,29 @@ class CRM
 		#puts "I'm in modify_contact"
 		main_menu
 	end
+
+	def exit_program
+		
+		puts "End your session? (y/n)"
+		finish = gets.chomp
+		
+		case finish
+		when "y"
+			exit
+		when "n"
+			main_menu
+		else
+			puts "Please make your choice (y/n)"
+			exit_program
+		end
+	end
 end
 
 session = CRM.new("Brian's CRM App") 
 # synonymous with new, calling new is calling initialize
 session.start
+
+
+
+
+

@@ -39,7 +39,13 @@ class Database
 		  		print "[  New Contact ID ]"
 		  		puts " => [ #{contact.id} ]"
 		  	when 2
-		  		contact.name = "case 2 works"
+		  		puts "Enter new first name: "
+		  		contact.first_name = gets.chomp
+		  		puts "Enter new last name: "
+		  		contact.last_name = gets.chomp
+		  		puts "[  S U C C E S S  ]"
+		  		print "[  New Contact Name ]"
+		  		puts " => [ #{contact.first_name} #{contact.last_name} ]"
 		  	when 3
 		  		contact.email = "case 3 works"
 		  	when 4
