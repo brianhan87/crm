@@ -78,6 +78,7 @@ class CRM
 			note
 		)
 		Database.add_contact(contact)
+		#Database.display_all_contacts
 		main_menu
 
 	end

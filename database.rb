@@ -9,7 +9,8 @@ class Database
 		#puts @contacts.inspect
 		@id += 1
 		#puts @id
-		puts "Contact Added: #{@contacts}"
+		puts "\n[ Contact Added: ]"
+		display_all_contacts
 	end
 
 	def self.contacts
