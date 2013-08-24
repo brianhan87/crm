@@ -26,32 +26,50 @@ class Database
 				puts "[ 3 ][  EMAIL ] #{contact.email}"
 				puts "[ 4 ][  NOTE  ] '#{contact.note}'"
 				puts "+++++++++++++++++++++++++"
-			  puts "\n"
-			  puts "Type number to change info"
+			  	puts "\n"
+			  	puts "Type number to change info"
 
-			  user_selected = gets.to_i
-			  p "user_selected : #{user_selected}"
+			  	user_selected = gets.to_i
+			  	p "user_selected : #{user_selected}"
 
-		  	case user_selected
-		  	when 1
-		  		puts "Enter NEW ID: "
-		  		contact.id = gets.to_i
-		  		puts "[  S U C C E S S  ]"
-		  		print "[  New Contact ID ]"
-		  		puts " => [ #{contact.id} ]"
-		  	when 2
-		  		puts "Enter new first name: "
-		  		contact.first_name = gets.chomp
-		  		puts "Enter new last name: "
-		  		contact.last_name = gets.chomp
-		  		puts "[  S U C C E S S  ]"
-		  		print "[  New Contact Name ]"
-		  		puts " => [ #{contact.first_name} #{contact.last_name} ]"
-		  	when 3
-		  		contact.email = "case 3 works"
-		  	when 4
-		  		contact.note = "case 4 works"
-		  	end
+			  	case user_selected
+			  	when 1
+			  		puts "Enter NEW ID: "
+			  		contact.id = gets.to_i
+			  		puts "[  S U C C E S S  ]"
+			  		print "[  New Contact ID ]"
+			  		puts " => [ #{contact.id} ]"
+			  	when 2
+			  		puts "Enter new first name: "
+			  		contact.first_name = gets.chomp
+			  		puts "Enter new last name: "
+			  		contact.last_name = gets.chomp
+			  		puts "[  S U C C E S S  ]"
+			  		print "[  New Contact Name ]"
+			  		puts " => [ #{contact.first_name} #{contact.last_name} ]"
+			  	when 3
+			  		contact.email = "case 3 works"
+			  	when 4
+			  		contact.note = "case 4 works"
+			  	end
+			end
+		end
+	end
+
+	def self.delete_contact(email)
+		@contacts.each do |contact| 
+			if email == contact.email
+				puts "+++++++++++++++++++++++++"
+				puts "---- CONTACT DELETED ----"
+				puts "+++++++++++++++++++++++++"
+				puts "[  ID    ] #{contact.id}"
+				puts "[  NAME  ] #{contact.first_name} #{contact.last_name}" 
+				puts "[  EMAIL ] #{contact.email}"
+				puts "[  NOTE  ] '#{contact.note}'"
+				puts "+++++++++++++++++++++++++"
+			  	puts "\n"
+
+			  	@contacts.delete(contact)
 			end
 		end
 	end

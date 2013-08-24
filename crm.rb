@@ -99,6 +99,14 @@ class CRM
 		main_menu
 	end
 
+	def delete_contact
+		Database.display_all_contacts
+		puts "Enter email to DELETE a contact"
+		email = gets.chomp
+		Database.delete_contact(email)
+		main_menu
+	end
+
 	def exit_program
 		
 		puts "End your session? (y/n)"
