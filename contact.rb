@@ -1,8 +1,8 @@
 
 class Contact
-	attr_accessor :first_name, :last_name, :id, :email
+	attr_accessor :first_name, :last_name, :id, :email, :note
 	#attr_writer :note
-	attr_reader :note 
+	#attr_reader :note 
 
 	def initialize(
 		first_name, 

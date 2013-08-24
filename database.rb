@@ -48,9 +48,17 @@ class Database
 			  		print "[  New Contact Name ]"
 			  		puts " => [ #{contact.first_name} #{contact.last_name} ]"
 			  	when 3
-			  		contact.email = "case 3 works"
+			  		puts "Enter new email: "
+			  		contact.email = gets.chomp
+			  		puts "[  S U C C E S S  ]"
+			  		print "[  New Contact Email ]"
+			  		puts " => [ #{contact.email} ]"
 			  	when 4
-			  		contact.note = "case 4 works"
+			  		puts "Enter new note: "
+			  		contact.note = gets.chomp
+			  		puts "[  S U C C E S S  ]"
+			  		print "[  New Contact Note ]"
+			  		puts " => [ #{contact.note} ]"
 			  	end
 			end
 		end
@@ -75,6 +83,7 @@ class Database
 	end
 
 	def self.display_all_contacts
+
 		@contacts.each do |contact| 
 			puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 			puts "[ ID    ] #{contact.id}"

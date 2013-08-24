@@ -58,6 +58,7 @@ class CRM
 			exit_program 
 		else
 			puts "Please enter a number from 1 to 6"
+			#puts "\e[H\e[2J"
 			main_menu
 		end
 	end
@@ -78,20 +79,20 @@ class CRM
 			note
 		)
 		Database.add_contact(contact)
+		
 		#Database.display_all_contacts
 		main_menu
 
 	end
 
 	def display_all_contacts
-		contact_list = Database.display_all_contacts
-		contact_list
+		Database.display_all_contacts
+		#puts "\e[H\e[2J"
 		main_menu
 	end
 
 	def modify_contact
-		contact_list = Database.display_all_contacts
-		contact_list
+		Database.display_all_contacts
 		print "Enter email to choose a contact to modify: "
 		email = gets.chomp
 		contact = Database.find_all_contact(email)
@@ -126,6 +127,7 @@ end
 
 session = CRM.new("Brian's CRM App") 
 # synonymous with new, calling new is calling initialize
+puts "\e[H\e[2J"
 session.start
 
 
