@@ -97,8 +97,22 @@ class Database
 	end
 
 	def self.display_attribute(attribute)
+		#puts attribute
 		@contacts.each do |contact|
-			puts contact.first_name if attribute == "first_name"
+			if attribute    == 1
+				puts "[ #{contact.first_name} ]" 
+			elsif attribute == 2
+				puts "[ #{contact.last_name} ]"
+			elsif attribute == 3
+				puts "#[ {contact.email} ]"
+			elsif attribute == 4
+				puts "[ #{contact.note} ]"
+			else
+				puts "=> Next time,"
+				puts "=> Please enter (1/2/3/4)"
+				exit
+			end
 		end
 	end
 end
+

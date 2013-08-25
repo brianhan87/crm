@@ -116,30 +116,23 @@ class CRM
 	end
 
 	def display_contact_attributes
+		puts "___________________________________"
+		puts "\n"
 		puts "Enter attribute you want to display"
-		puts "[first_name, last_name, email, note]"
-		attribute = gets.chomp
+		puts "___________________________________"
+		puts "[1][ first_name ]" 
+		puts "[2][ last_name ]" 
+		puts "[3][ email    ]"
+		puts "[4][ note    ]"
+		print "=> enter number here: "
+		attribute = gets.to_i
+		#puts attribute
 		Database.display_attribute(attribute)
 		main_menu
 	end
 
 	def exit_program
 		exit
-	end
-	def exit_program_old
-		
-		puts "End your session? (y/n)"
-		finish = gets.to_s
-		
-		case finish
-		when "y"
-			exit
-		when "n"
-			main_menu
-		#else
-			#puts "Please make your choice (y/n)"
-			#exit_program
-		end
 	end
 end
 
