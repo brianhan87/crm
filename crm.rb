@@ -59,9 +59,9 @@ class CRM
 			display_all_contacts  
 		when 5
 			puts "\e[H\e[2J"
-			display_attribute_of_contacts
+			display_contact_attributes
 		when 6
-			puts "\e[H\e[2J"
+			#puts "\e[H\e[2J"
 			exit_program 
 		else
 			puts "Please enter a number from 1 to 6"
@@ -115,19 +115,30 @@ class CRM
 		main_menu
 	end
 
+	def display_contact_attributes
+		puts "Enter attribute you want to display"
+		puts "[first_name, last_name, email, note]"
+		attribute = gets.chomp
+		Database.display_attribute(attribute)
+		main_menu
+	end
+
 	def exit_program
+		exit
+	end
+	def exit_program_old
 		
 		puts "End your session? (y/n)"
-		finish = gets.chomp
+		finish = gets.to_s
 		
 		case finish
 		when "y"
 			exit
 		when "n"
 			main_menu
-		else
-			puts "Please make your choice (y/n)"
-			exit_program
+		#else
+			#puts "Please make your choice (y/n)"
+			#exit_program
 		end
 	end
 end

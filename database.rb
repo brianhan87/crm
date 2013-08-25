@@ -95,4 +95,10 @@ class Database
 		end
 		#puts "I'm in Database.display_all_contacts"
 	end
+
+	def self.display_attribute(attribute)
+		@contacts.each do |contact|
+			puts contact.first_name if attribute == "first_name"
+		end
+	end
 end
