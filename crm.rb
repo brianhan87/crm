@@ -10,6 +10,7 @@ class CRM
 	end
 
 	def start # coordinator
+		puts "\e[H\e[2J"
 		main_menu
 		#add_contact
 		#modify_contact
@@ -45,16 +46,22 @@ class CRM
 		
 		case user_selected 
 		when 1
+			puts "\e[H\e[2J"
 			add_new_contact
 		when 2
+			puts "\e[H\e[2J"
 			modify_contact   
 		when 3
+			puts "\e[H\e[2J"
 			delete_contact
 		when 4
+			puts "\e[H\e[2J"
 			display_all_contacts  
 		when 5
+			puts "\e[H\e[2J"
 			display_attribute_of_contacts
 		when 6
+			puts "\e[H\e[2J"
 			exit_program 
 		else
 			puts "Please enter a number from 1 to 6"
